@@ -2,7 +2,10 @@ package com.example.myfirstapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -10,12 +13,31 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+	private MyPhoneReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+    //This is code for a broadcast receiver 
+  /*  
+    @Override
+    protected void onPause() {
+       unregisterReceiver(mReceiver);
+       super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+       this.mReceiver = new MyPhoneReceiver();
+       registerReceiver(
+             this.mReceiver, 
+             new IntentFilter(TelephonyManager.EXTRA_STATE));
+       super.onResume();
+    }
+    */
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -24,19 +46,16 @@ public class MainActivity extends Activity {
         return true;
     }
     
-    public void sendMessage(View view){
-    	Intent intent = new Intent(this, DisplayMessageActivity.class);
-    	EditText editText = (EditText) findViewById(R.id.edit_message);
-    	String message = editText.getText().toString();
-    	intent.putExtra(EXTRA_MESSAGE, message);
-    	startActivity(intent);
-    	//do something here 
-    }
-    
-    //this is my service method
+
+    //this is my starting service method
     public void startPhanto(View view){
-    	Intent serviceIntent = new Intent(this, HelloService.class);
+    	Intent serviceIntent = new Intent(this, secondService.class);
     	startService(serviceIntent);
     }
     
+    //this is my stopping service method
+    public void stopPhanto(View view){
+    	Intent stopIntent = new Intent(this, secondService.class);
+    	stopService(stopIntent);
+    }
 }

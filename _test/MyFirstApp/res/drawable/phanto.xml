@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Animation frames are .png files inside theres/drawable/ folder -->
+ <animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/selected" android:oneshot="false">
+    <item android:drawable="@drawable/phanto2" android:duration="500" />
+    <item android:drawable="@drawable/phanto1" android:duration="500" />
+    <item android:drawable="@drawable/phanto2" android:duration="500" />
+    <item android:drawable="@drawable/phanto1" android:duration="500" />
+    <item android:drawable="@drawable/phanto2" android:duration="500" />
+    <item android:drawable="@drawable/phanto1" android:duration="500" />
+</animation-list>
