@@ -10,6 +10,7 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TASKS"/>
     
     <application
         android:allowBackup="true"
@@ -26,12 +27,9 @@
             </intent-filter>
         </activity>
         <receiver android:name=".ScreenBroadcastReceiver"/>
-        <receiver android:name=".UserPresentBroadcastReciever">
-        	<intent-filter>
-               	<action android:name="android.intent.action.USER_PRESENT"/>
-            </intent-filter>
-        </receiver>
-        <service android:name=".ScreenStatusServiceListener"/>
+        <receiver android:name=".UserPresentBroadcastReciever"/>
+        <service android:name=".MainService"/>
+        <service android:name=".CheckForegroundAppService"/>
     </application>
 
 </manifest>
