@@ -12,11 +12,11 @@ public class UserPresentBroadcastReciever extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)) {
-			loginTime = System.currentTimeMillis();
+			loginTime = System.currentTimeMillis()/1000;
             userPresent = true;
         }
         
-        Intent i = new Intent(context, MainService.class);
+        Intent i = new Intent(context, ScreenStatusServiceListener.class);
         i.putExtra("unlocked", userPresent);
         i.putExtra("screen_state", true);
         i.putExtra("loginTime",loginTime);

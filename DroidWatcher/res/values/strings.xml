@@ -4,7 +4,7 @@
     <string name="app_name">DroidWatcher</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="buttonstartBroadcastListener">Start Main Service</string>
-    <string name="buttonstopBroadcastListener">Stop Main Service</string>
+    <string name="buttonstartBroadcastListener">Start BroadcastListener</string>
+    <string name="buttonstopBroadcastListener">Stop BroadcastListener</string>
 
 </resources>

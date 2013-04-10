@@ -13,18 +13,17 @@ public class ScreenBroadcastReceiver extends BroadcastReceiver {
     
     @Override
     public void onReceive(Context context, Intent intent) {
-		screenTime = System.currentTimeMillis();
+		screenTime = System.currentTimeMillis()/1000;
         if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
             screenOn = false;
         } else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) {
         	screenOn = true;
         }
         
-        Intent i = new Intent(context, MainService.class);
+        Intent i = new Intent(context, ScreenStatusServiceListener.class);
         i.putExtra("screen_state", screenOn);
         i.putExtra("unlocked", false);
         i.putExtra("screenIntentTime", screenTime);
         context.startService(i);
-
     }
 }
